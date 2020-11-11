@@ -8,4 +8,5 @@ urlpatterns = [
     path('index/', views.index),
     path('exit/', views.exit),
     path('welcome/', views.welcome),
+    path('ajaxlogin/', views.ajaxlogin)
 ]

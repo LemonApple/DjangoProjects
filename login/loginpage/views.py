@@ -16,7 +16,7 @@ def login(request):
         username = request.POST.get("username")
         password = request.POST.get("password")
         res = Users.objects.filter(username = username, password = password)#查询到返回一个Users类的对象列表，0为要找的对象，未查询到返回空列表；后username为上一行自定义变量，前username为数据库内字段
-        if res != None:
+        if res :
             # 把从数据库输出的字段塞入session的库中
             request.session['id'] = res[0].id
             request.session['username'] = res[0].username
@@ -55,3 +55,13 @@ def exit(request):#删除session数据
 
 def welcome(request):
     return render(request, 'welcome.html')
+
+
+def ajaxlogin(request):
+    username = request.POST.get("username")
+    password = request.POST.get("password")
+    res = Users.objects.filter(username=username, password=password)
+    if res:
+        return HttpResponse(1)
+    else:
+        return HttpResponse(0)
