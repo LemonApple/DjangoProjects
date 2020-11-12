@@ -1,6 +1,5 @@
 from django.shortcuts import redirect
 
-
 # 中间件
 class LoginMiddleware:
     def __init__(self, get_response):

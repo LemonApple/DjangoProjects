@@ -1,5 +1,4 @@
 from django.db import IntegrityError
-
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
@@ -40,7 +39,7 @@ def init(request):
         return HttpResponse("用户名重复")
     return HttpResponse("OK")
 
-
+# 利用session
 def index(request):
     if request.session.get('id', None):  # 已经登陆过，直接进入index
         return render(request, 'index.html')
