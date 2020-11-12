@@ -68,13 +68,17 @@
 <script type="text/javascript" src="{% static "static/h-ui/js/H-ui.min.js" %}"></script>
 <script>
     //$("#ajaxbtn")相当于document.getElementById（）
-    $("#ajaxbtn").click(function (){
-        $.ajax({
-            url:"",
-            method:"post",
-            data:{username:$("#username").val(), password:$("#password").val()},
-            success:function (data){alert(data)},
-            error:function (err){console.log(err)}
+    $("#ajaxbtn").click(function () {
+        $.ajax({//这是一个json
+            url: "/login/ajaxlogin/",//地址为数据传输处
+            method: "post",
+            data: {username: $("#username").val(), password: $("#password").val()},
+            success: function (data) {
+                alert(data)
+            },
+            error: function (err) {
+                console.log(err)
+            }
         })
     })
 </script>
