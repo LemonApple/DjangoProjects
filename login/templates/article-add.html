@@ -42,10 +42,11 @@
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>文章类型：</label>
 			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
-				<select name="articletype" class="select">
-					<option value="0">全部类型</option>
-					<option value="1">帮助说明</option>
-					<option value="2">新闻资讯</option>
+				<select name="articletype" id="articletype" class="select">
+                    <!--遍历，以在选项中显示types中的文章title（定义于models中）-->
+                    {% for type in types %}
+                        <option value="{{ type.id }}">{{ type.title }}</option>
+                    {% endfor %}
 				</select>
 				</span> </div>
 		</div>
@@ -243,6 +244,34 @@ $(function(){
 	var ue = UE.getEditor('editor');
 	
 });
+
+function article_save_submit(){
+    // 取用户输入的值
+    let title = $("#articletitle").val();
+    let type = $("#articletype").val();
+    // 获取富文本编辑器的句柄
+    let ue = UE.getEditor("editor");
+    let content = ue.getContent();
+
+    $.ajax({
+        url:'/article/articleadd/',
+        //GET - 从指定的资源请求数据。POST - 向指定的资源提交要被处理的数据
+        method:"post",
+        data:{
+            title:title,
+            type:type,
+            content:content
+        },
+        success:function (data){
+            alert(data);
+        },
+        error:function (err){
+            console.log(err);
+        },
+    })
+
+
+}
 </script>
 <!--/请在上方写此页面业务相关的脚本-->
 </body>
