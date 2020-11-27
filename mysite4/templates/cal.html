@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap.css" %}">
+</head>
+<body>
+<div class="container">
+    <form action="/cal2/" class="mt-5" method="post">
+        <input type="text" class="form-control" name="num1">
+        +
+        <input type="text" class="form-control" name="num2">
+        =
+        <br>
+        <input type="submit" value="计算" class="btn btn-primary">
+    </form>
+
+</div>
+
+
+<script src="{% static "jquery.js" %}"></script>
+<script src="{% static "popper.min.js" %}"></script>
+<script src="{% static "bootstrap/js/bootstrap.js" %}"></script>
+</body>
+</html>

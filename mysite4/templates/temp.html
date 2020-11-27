@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div style=  "color: red">{{ info }}</div>
+<div>该页面将于<label id="countdown"></label>秒后返回登录页面</div>
+</body>
+<script>
+    let countdown = document.getElementById("countdown");
+    let t = 5;
+    setInterval(function(){
+        countdown.innerText = t;
+        t=t-1;
+        if(t == -1){
+            window.location.href = "/login/login/";
+        }
+    }, 1000)
+</script>
+</html>
