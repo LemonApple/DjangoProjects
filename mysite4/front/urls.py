@@ -19,7 +19,6 @@ from django.urls import path
 from front import views
 
 urlpatterns = [
-    path('', views.default),
     path('types/', views.types),
-    path('articles/', views.articles)
+    path('', views.default),
 ]

@@ -1,58 +1,147 @@
 {% load static %}
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap.css" %}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="邵然的制作的新闻首页">
+    <meta name="author" content="邵然">
+    <meta name="generator" content="Jekyll v4.1.1">
+    <title>邵然的新闻首页</title>
+
+<link href="{% static "assets/dist/css/bootstrap.min.css" %}" rel="stylesheet">
+
     <style>
-        .top{
-            height: 70px;
-            background-color: #00a0e9;
-        }
-        .top img{
-            height: 30px;
-            margin-top: 20px;
-        }
-        .copyright{
-            height: 30px;
-            background-color: grey;
-        }
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
 
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      body {
+          padding-top: 3.5rem;
+      }
     </style>
-</head>
-<body>
-<div class="container-fluid top">
-    <img src="{% static "images/logo.png" %}" alt="">
-</div>
-<div class="container">
-    {% for type in types %}
-        <span class="ml-3"><a href="/front/types/?id={{ type.id }}">{{ type.title }}</a></span>
-    {% endfor %}
-</div>
-<div class="container-fluid">
-    <img src="{% static "images/1.jpg" %}" alt="" class="embed-responsive">
-</div>
-<div class="container">
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/front/">首页 <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/login/login/">资讯管理中心 </a>
+      </li>
+    </ul>
+    {# 搜索功能还没有完成，当然因为不会做。 #}
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="搜索新闻" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜索</button>
+    </form>
+  </div>
+</nav>
+
+<main role="main">
+
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3">欢迎来到邵然制作的新闻中心</h1>
+      <p>在这里你可以浏览到与中国大陆地区、香港特别行政区、澳门特别行政区、台湾地区、美国以及娱乐、科技、财经相关的新闻</p>
+      <p><a class="btn btn-primary btn-lg" href="#" role="button">了解更多 &raquo;</a></p>
+    </div>
+  </div>
+
+  <div class="container">
+
     <div class="row">
-        <img src="{% static "images/4196460.jpg" %}" alt="" class="col-4 embed-responsive mt-3 pl-1">
-        <img src="{% static "images/4196460.jpg" %}" alt="" class="col-4 embed-responsive mt-3 pl-1">
-        <img src="{% static "images/4196460.jpg" %}" alt="" class="col-4 embed-responsive mt-3 pl-1">
-        <img src="{% static "images/4196460.jpg" %}" alt="" class="col-4 embed-responsive mt-3 pl-1">
-        <img src="{% static "images/4196460.jpg" %}" alt="" class="col-4 embed-responsive mt-3 pl-1">
-        <img src="{% static "images/4196460.jpg" %}" alt="" class="col-4 embed-responsive mt-3 pl-1">
-
+      <div class="col-md-4">
+          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-newspaper" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5v-11zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.279.147-.531V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5H12z"/>
+  <path d="M2 3h10v2H2V3zm0 3h4v3H2V6zm0 4h4v1H2v-1zm0 2h4v1H2v-1zm5-6h2v1H7V6zm3 0h2v1h-2V6zM7 8h2v1H7V8zm3 0h2v1h-2V8zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1z"/>
+</svg>
+        <h2>中国新闻</h2>
+        <p>中国是位于亚欧大陆的国家或地理区域，从西周至清的各政权秉持传统的天下观念，皆使用「中国」称呼本国。 </p>
+        <p><a class="btn btn-secondary" href="/front/types/?id=1" role="button">浏览中国新闻 &raquo;</a></p>
+      </div>
+      <div class="col-md-4">
+          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-newspaper" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5v-11zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.279.147-.531V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5H12z"/>
+  <path d="M2 3h10v2H2V3zm0 3h4v3H2V6zm0 4h4v1H2v-1zm0 2h4v1H2v-1zm5-6h2v1H7V6zm3 0h2v1h-2V6zM7 8h2v1H7V8zm3 0h2v1h-2V8zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1z"/>
+</svg>
+        <h2>港澳台新闻</h2>
+        <p>香港、澳门、台湾地区同属一个中国，其中台湾地区包括台湾、澎湖、金门、马祖地区以及部分南海诸岛。 </p>
+        <p><a class="btn btn-secondary" href="/front/types/?id=2" role="button">浏览港澳台新闻 &raquo;</a></p>
+      </div>
+      <div class="col-md-4">
+          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-newspaper" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5v-11zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.279.147-.531V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5H12z"/>
+  <path d="M2 3h10v2H2V3zm0 3h4v3H2V6zm0 4h4v1H2v-1zm0 2h4v1H2v-1zm5-6h2v1H7V6zm3 0h2v1h-2V6zM7 8h2v1H7V8zm3 0h2v1h-2V8zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1z"/>
+</svg>
+        <h2>美利坚新闻</h2>
+        <p>美利坚合众国，中文通称「美国」，是由其下辖50个州、华盛顿哥伦比亚特区、五个自治领土及外岛共同组成的联邦共和国。</p>
+        <p><a class="btn btn-secondary" href="/front/types/?id=3" role="button">浏览美国新闻 &raquo;</a></p>
+      </div>
     </div>
-</div>
 
-<div class="copyright">
-    <div class="row justify-content-center">
-        <span>copyright</span>
+      <br>
+
+  </div>
+
+      <div class="container">
+
+    <div class="row">
+      <div class="col-md-4">
+          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-newspaper" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5v-11zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.279.147-.531V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5H12z"/>
+  <path d="M2 3h10v2H2V3zm0 3h4v3H2V6zm0 4h4v1H2v-1zm0 2h4v1H2v-1zm5-6h2v1H7V6zm3 0h2v1h-2V6zM7 8h2v1H7V8zm3 0h2v1h-2V8zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1z"/>
+</svg>
+        <h2>娱乐新闻</h2>
+        <p>娱乐新闻是根据现代人的某种需要而生产出来供一部分人消费的信息产品。而娱乐新闻大行其道与中国的各种文化，社会因素存在联系。 </p>
+        <p><a class="btn btn-secondary" href="/front/types/?id=4" role="button">浏览娱乐新闻 &raquo;</a></p>
+      </div>
+      <div class="col-md-4">
+          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-newspaper" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5v-11zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.279.147-.531V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5H12z"/>
+  <path d="M2 3h10v2H2V3zm0 3h4v3H2V6zm0 4h4v1H2v-1zm0 2h4v1H2v-1zm5-6h2v1H7V6zm3 0h2v1h-2V6zM7 8h2v1H7V8zm3 0h2v1h-2V8zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1z"/>
+</svg>
+        <h2>科技新闻</h2>
+        <p>报道科技活动和科技成果的新闻。科技新闻作为新闻的一个分支，除了具有新闻的一般特性外，还具有准确性、通俗性、知识性。 </p>
+        <p><a class="btn btn-secondary" href="/front/types/?id=5" role="button">浏览科技新闻 &raquo;</a></p>
+      </div>
+      <div class="col-md-4">
+          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-newspaper" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5v-11zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.279.147-.531V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5H12z"/>
+  <path d="M2 3h10v2H2V3zm0 3h4v3H2V6zm0 4h4v1H2v-1zm0 2h4v1H2v-1zm5-6h2v1H7V6zm3 0h2v1h-2V6zM7 8h2v1H7V8zm3 0h2v1h-2V8zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1z"/>
+</svg>
+        <h2>财经新闻</h2>
+        <p>覆盖全部社会经济生活和与经济有关领域，包括从生产到消费、从城市到农村、从宏观到微观、从经济工作到政治、社会生活中的相关领域。</p>
+        <p><a class="btn btn-secondary" href="/front/types/?id=6" role="button">浏览财经新闻 &raquo;</a></p>
+      </div>
     </div>
 
-</div>
+    <hr>
+
+  </div>
+</main>
+
+<footer class="container">
+  <p>&copy; 邵然 2020.11</p>
+</footer>
+<script src="{% static "jquery-3.5.1.slim.min.js" %}" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+{% comment %}首先会判断有没有window.jQuery，即判断是否导入了jquery,如果没有（也就是false）,则运行后面的代码，将jquery引入到项目中。
+||逻辑判断的规则：如果||前面的表达式是true,就返回||前面表达式true的结果，如果是false,则运行后面的表达式。{% endcomment %}
+<script>window.jQuery || document.write('<script src="{% static "assets/js/vendor/jquery.slim.min.js" %}"><\/script>')</script>
+<script src="{% static "assets/dist/js/bootstrap.bundle.min.js" %}"></script>
 </body>
-<script src="{% static "jquery.js"  %}s"></script>
-<script src="{% static "popper.min.js" %}"></script>
-<script src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
 </html>
