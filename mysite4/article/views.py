@@ -29,9 +29,15 @@ def articleadd(request):
 
 
 def typeinit(request):
-    type = Types(title='国内新闻')
+    type = Types(title='中国新闻')
     type.save()
-    type = Types(title='国际新闻')
+    type = Types(title='港澳台新闻')
+    type.save()
+    type = Types(title='美国新闻')
+    type.save()
+    type = Types(title='娱乐新闻')
+    type.save()
+    type = Types(title='科技新闻')
     type.save()
     type = Types(title='财经新闻')
     type.save()

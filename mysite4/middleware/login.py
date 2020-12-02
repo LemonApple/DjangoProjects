@@ -1,3 +1,5 @@
+import re
+
 from django.shortcuts import redirect
 
 
@@ -13,7 +15,7 @@ class LoginMiddleware:
             '/login/login/',
             '/login/ajaxlogin/'
         ]
-        if request.session.get('id') or request.path_info in urls:
+        if request.session.get('id') or request.path_info in urls or re.search('^/front/', request.path_info):
             response = self.get_response(request)
 
             # Code to be executed for each request/response after
