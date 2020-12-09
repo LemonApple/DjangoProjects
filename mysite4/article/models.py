@@ -12,3 +12,4 @@ class Articles(models.Model):
     content = models.TextField(default="暂无内容！")
     type = models.ForeignKey(Types, on_delete=models.CASCADE)
     author = models.ForeignKey(Users, on_delete=models.CASCADE)
+    fujian = models.CharField(max_length=200, default='upload/noPicture.jpg', blank=True)

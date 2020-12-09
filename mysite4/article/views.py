@@ -1,15 +1,16 @@
+import os
+
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
-
 # Create your views here.
 from article.models import Types, Articles
-
+from mysite4.settings import BASE_DIR
+import datetime
 
 def articlelist(request):
     articles = Articles.objects.all()
     return render(request, 'article-list.html', {'articles': articles})
-
 
 
 def articleadd(request):
@@ -22,10 +23,21 @@ def articleadd(request):
         type = request.POST.get("type")
         content = request.POST.get("content")
         author = request.session.get("id")
+        myfile = request.FILES.get("myfile")
+        myfile_path = os.path.join(BASE_DIR, 'static', 'upload', myfile.name)
 
-        article = Articles(title=title, content=content, type_id=type, author_id=author)
-        article.save()
-        return HttpResponse("文章添加成功！")
+        newfilename = str (datetime.datetime.now().strftime('%Y%m%d%H%M%S'))
+        newfilename2 = myfile.name
+        ext = newfilename2.split('.')[-1]
+        newfilename = newfilename + "." + ext
+        myfile_path = os.path.join(BASE_DIR, 'static', 'upload', newfilename)
+        with open(myfile_path, 'wb') as f:
+            for chunk in myfile.chunks():
+                f.write(chunk)
+        upload_location = os.path.join('upload', newfilename)
+    article = Articles(title=title, content=content, type_id=type, author_id=author, fujian=upload_location)
+    article.save()
+    return HttpResponse("文章添加成功！")
 
 
 def typeinit(request):
@@ -55,7 +67,7 @@ def articleedit(request):
         id = request.GET.get('id')
         article = Articles.objects.filter(id=id)[0]
         types = Types.objects.all()
-        return render(request, 'article-edit.html', {'article': article, 'types':types})
+        return render(request, 'article-edit.html', {'article': article, 'types': types})
     else:
         title = request.POST.get("title")
         type = request.POST.get("type")
